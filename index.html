@@ -88,14 +88,22 @@
     </header>
 
     <!-- info section -->
-     <section class="text-center text-3xl mt-5 font-semibold text-[#013003]">Choose Your Trees</section>
-    <section class="mx-8 mt-6 h-[450px] flex  gap-4">
-      <div class=" w-1/4">
-        <h1 class="text-2xl font-semibold mb-2">Categories</h1>
-        <h1 class="w-full hover:bg-[#15803D] hover:text-white transition cursor-pointer p-1">All Trees</h1>
+    <section class="text-center text-3xl mt-5 font-semibold text-[#013003]">
+      Choose Your Trees
+    </section>
+    <section class="mx-8 mt-6 flex gap-4 flex-col md:flex-row">
+      <div class=" w-full md:w-2/12 flex flex-col flex-wrap md:flex-col  md:flex-nowrap">
+        <div class="text-2xl font-semibold mb-2">Categories</div>
+        <div class="w-full bg-[#15803D] text-white transition cursor-pointer p-1">All Trees</div>
+        <div id="catagorys" class=""></div>
       </div>
-      <div class="bg-blue-600 w-full"></div>
-      <div class="bg-green-500 w-1/4"></div>
+      </div>
+
+
+      <div id="all-plants" class=" w-full grid grid-cols-1 md:grid-cols-3 gap-5">
+
+      </div>
+      <div class="bg-green-500 w-full md:w-2/12"></div>
     </section>
     <!-- about -->
     <section class="about mt-10 w-10/12 md:w-8/12 mx-auto">
@@ -122,7 +130,9 @@
       <h1 class="text-center text-3xl font-semibold text-[#1F2937]">
         Our Impact
       </h1>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mx-0 md:mx-7 mt-6">
+      <div
+        class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mx-0 md:mx-7 mt-6"
+      >
         <div class="bg-white p-5 text-center space-y-2 rounded-2xl shadow-2xl">
           <h2 class="text-3xl text-[#15803D] font-semibold">500K+</h2>
           <p class="text-[#1F2937]">Trees Planted</p>
@@ -161,14 +171,20 @@
             <option>Medicinal Trees</option>
           </select>
 
-          <button class="btn bg-[#FACC15] rounded-4xl border-none text-[20px] text-[#166534] font-semibold">Donate Now</button>
+          <button
+            class="btn bg-[#FACC15] rounded-4xl border-none text-[20px] text-[#166534] font-semibold"
+          >
+            Donate Now
+          </button>
         </fieldset>
       </div>
     </section>
 
     <footer class="bg-[#14532D] py-6">
-        <h1 class="text-center text-white">© 2025 Green Earth. All Rights Reserved.</h1>
+      <h1 class="text-center text-white">
+        © 2025 Green Earth. All Rights Reserved.
+      </h1>
     </footer>
-
+    <script src="app.js"></script>
   </body>
 </html>
