@@ -24,25 +24,22 @@ const speceiPic = (id) => {
       removeActive();
       const cataId = document.getElementById(`catagory-${id}`);
       cataId.classList.add("active");
-
       singleCataGorys(data.plants);
     });
 };
 
-const SpinnerMenage = (status) => {
-  if(status == true){
-    document.getElementById("spinner").classList.remove("hidden")
-    document.getElementById("all-plants").classList.add("hidden")
-  }
-  else{
-    document.getElementById("all-plants").classList.remove("hidden")
-    document.getElementById("spinner").classList.add("hidden")
-  }
-}
+
+// const spinner = () => {
+//   const allpl = document.getElementById("all-plants")
+//   allpl.innerHTML += `<section class="flex justify-center py-5">
+//       <span class="loading loading-spinner loading-xl"></span>`
+// }
+
 
 const singleCataGorys = (singleValu) => {
   const allPlants = document.getElementById("all-plants");
   allPlants.innerHTML = "";
+  
   singleValu.forEach((value) => {
     const crateSing = document.createElement("div");
     crateSing.innerHTML = `<div class="bg-white shadow p-4 rounded-2xl flex flex-col justify-between h-full">
@@ -59,57 +56,73 @@ const singleCataGorys = (singleValu) => {
   </div>`;
     allPlants.appendChild(crateSing);
   });
+  
 };
 
-const cardConatiner = document.getElementById("all-plants")
-cardConatiner.addEventListener("click",(e) => {
-  if(e.target.innerText === "Add to Cart"){
-    
-    const cartcont = document.getElementById("Cart-cont")
-  let treename = e.target.parentNode.childNodes[1].childNodes[7].childNodes[1].innerText
-  const treena = e.target.parentNode.childNodes[1].childNodes[3].innerText
-  alert(`${treena} - has been added to the cart`)
-  const treePrice = Number(e.target.parentNode.childNodes[1].childNodes[7].childNodes[3].innerText)
-   const total = document.getElementById("totals")
-   const crateCart = document.createElement("div")
-   crateCart.innerHTML += `<div id="remItem" class="flex justify-between items-center px-1 rounded-2xl bg-[#F0FDF4] mb-2">
+const element = (id) => {
+  const ele = document.getElementById(id);
+  return ele;
+};
+
+const cardConatiner = document.getElementById("all-plants");
+cardConatiner.addEventListener("click", (e) => {
+  if (e.target.innerText === "Add to Cart") {
+    const cartcont = document.getElementById("Cart-cont");
+    // let treename =
+    //   e.target.parentNode.childNodes[1].childNodes[7].childNodes[1].innerText;
+    const treena = e.target.parentNode.childNodes[1].childNodes[3].innerText;
+    alert(`${treena} - has been added to the cart`);
+    const treePrice = Number(
+      e.target.parentNode.childNodes[1].childNodes[7].childNodes[3].innerText
+    );
+    let totals = element("totals").innerText;
+    let convtot = Number(totals);
+    let sum = convtot;
+    let money = sum + treePrice;
+    document.getElementById("totals").innerHTML = money;
+  const crateCart = document.createElement("div");
+    crateCart.innerHTML += `<div id="remItem" class="flex justify-between items-center px-1 mt-3 rounded-2xl bg-[#F0FDF4] mb-2">
           <div>
-            <h1 class="text-[13px] font-semibold">${treename}</h1>
+            <h1 class="text-[13px] font-semibold">${treena}</h1>
           <h2 class="text-[#1F2937]"><span>৳</span> ${treePrice}</h2>
           </div>
           <button id="remove-item">❌</button>
         </div>
-        `
-   cartcont.appendChild(crateCart);
-  }
-  
-})
+        `;
+    cartcont.appendChild(crateCart);
 
+    // document.getElementById("remove-item").addEventListener("click", () => {
+    //   console.log("button clicke");
+    //       let carry =treePrice - treePrice;
+    //       document.getElementById("totals").innerHTML = carry;
+    // })
+
+  }
+});
 
 const loadDeltail = (id) => {
   fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
-  .then(res => res.json())
-  .then(data => showDetail(data.plants))
-}
+    .then((res) => res.json())
+    .then((data) => showDetail(data.plants));
+};
 
-const showDetail = (de) =>{
+const showDetail = (de) => {
   console.log(de);
-  const modalContainer = document.getElementById("details-container")
+  const modalContainer = document.getElementById("details-container");
   modalContainer.innerHTML = `<div class="space-y-3">
                 <h1 class="text-2xl font-semibold">${de.name}</h1>
                 <div class="h-[200px]"><img class="h-full object-cover w-full rounded-2xl mx-auto" src="${de.image}" alt=""></div>
                 <h2><span class="font-semibold">Category :</span> ${de.category}</h2>
                 <h2><span class="font-semibold">Price :</span> ${de.price} </h2>
                 <p><span class="font-semibold">Descriptions :</span> ${de.description}</p>
-              </div>`
-  document.getElementById("my_modal").showModal()
-}
-
-
+              </div>`;
+  document.getElementById("my_modal").showModal();
+};
 
 const allPlants = (allDatas) => {
   const AllPlants = document.getElementById("all-plants");
   allDatas.forEach((plant) => {
+    
     const crateAllPlants = document.createElement("div");
     crateAllPlants.innerHTML = `<div id="card-container" class="bg-white shadow p-4 rounded-2xl flex flex-col justify-between h-full">
     <div>

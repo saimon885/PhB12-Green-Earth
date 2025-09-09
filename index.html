@@ -108,10 +108,12 @@
     <div class="text-center text-3xl mt-5 font-semibold text-[#013003]">
       Choose Your Trees
     </div>
-    <section id="spinner" class="flex justify-center py-5 hidden">
-      <span class="loading loading-spinner loading-xl"></span>
+
     </section>
+
+
     <section class="mx-8 mt-6 flex gap-4 flex-col md:flex-row">
+      
       <div
         class="w-full md:w-2/12 flex flex-col flex-wrap md:flex-col text-center md:text-left md:flex-nowrap"
       >
@@ -119,15 +121,14 @@
         <!-- <div class="w-full bg-[#15803D] text-white transition cursor-pointer p-1">All Trees</div> -->
         <div id="catagorys" class="mt-2"></div>
       </div>
-
+      
       <div
         id="all-plants"
-        class="w-full grid grid-cols-1 md:grid-cols-3 gap-5 max-h-[570px] overflow-x-auto"
+        class="w-full grid grid-cols-1 md:grid-cols-3 gap-5 max-h-[600px] overflow-x-auto"
       >
-        <!-- Open the modal using ID.showModal() method -->
-        <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
-      </div>
 
+      </div>
+      <!-- modal -->
       <dialog id="my_modal" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
           <div id="details-container"></div>
@@ -139,10 +140,17 @@
           </div>
         </div>
       </dialog>
+
       <div class="w-full md:w-2/12 bg-white rounded-2xl p-2">
-        <h1 class="font-semibold">Your cart</h1>
+        <div class="flex justify-between items-center">
+          <div class="font-semibold">Your cart</div>
+          <div><i class="fa-solid fa-cart-shopping"></i></div>
+        </div>
         <div id="Cart-cont"></div>
-        <div id="totals"></div>
+        <div>
+          <hr class="mt-2">
+          <h1 class="font-semibold mt-2">Total: <span id="totals">0</span></h1>
+        </div>
       </div>
     </section>
 
