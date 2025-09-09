@@ -14,6 +14,8 @@
       type="text/css"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body class="bg-[#F0FDF4]">
     <header>
@@ -73,7 +75,7 @@
       <section
         class="flex flex-col justify-between items-center bg-[#CFF0DC] md:flex-row space-y-7 md:space-y-0"
       >
-        <img class="" src="assets/hero-leaf1.png" alt="leaf-1" />
+        <img class="max-w-[95%]" src="assets/hero-leaf1.png" alt="leaf-1" />
         <div class="text-center space-y-4 mx-10 md:mx-0">
           <h1 class="text-4xl font-bold">Plant a Tree, Grow a Future</h1>
           <p class="text-[#1F2937]">
@@ -85,28 +87,66 @@
             >Get Involved</a
           >
         </div>
-        <img src="assets/hero-leaf2.png" alt="leaf-2" />
+        <img class="max-w-[95%]" src="assets/hero-leaf2.png" alt="leaf-2" />
       </section>
     </header>
 
     <!-- info section -->
-    <section class="text-center text-3xl mt-5 font-semibold text-[#013003]">
+    <div class="text-center text-3xl mt-5 font-semibold text-[#013003]">
       Choose Your Trees
-    </section>
+    </div>
     <section class="mx-8 mt-6 flex gap-4 flex-col md:flex-row">
-      <div class=" w-full md:w-2/12 flex flex-col flex-wrap md:flex-col  md:flex-nowrap">
+      <div class=" w-full md:w-2/12 flex flex-col flex-wrap md:flex-col text-center md:text-left  md:flex-nowrap">
         <div class="text-2xl font-semibold mb-2">Categories</div>
-        <div class="w-full bg-[#15803D] text-white transition cursor-pointer p-1">All Trees</div>
-        <div id="catagorys" class=""></div>
-      </div>
+        <!-- <div class="w-full bg-[#15803D] text-white transition cursor-pointer p-1">All Trees</div> -->
+        <div id="catagorys" class="mt-2"></div>
       </div>
 
 
-      <div id="all-plants" class=" w-full grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div id="all-plants" class="w-full grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" ">open modal</button> -->
+<!-- <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Hello!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <!-- <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog> -->
 
+<!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" >open modal</button> -->
+<!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" onclick="mymodal.showModal()">open modal</button> -->
+<dialog id="mymodal" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Hello!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+  </div>
+      <div  class=" w-full md:w-2/12 bg-white rounded-2xl p-2">
+        <h1 class="font-semibold">Your cart</h1>
+        <div id="Cart-cont">
+          
+        </div>
+        <div id="totals"></div>
       </div>
-      <div class="bg-green-500 w-full md:w-2/12"></div>
     </section>
+
+
     <!-- about -->
     <section class="about mt-10 w-10/12 md:w-8/12 mx-auto">
       <h3 class="text-center text-4xl font-semibold">About the Campaign</h3>
