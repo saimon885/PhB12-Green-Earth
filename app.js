@@ -28,6 +28,18 @@ const speceiPic = (id) => {
       singleCataGorys(data.plants);
     });
 };
+
+const SpinnerMenage = (status) => {
+  if(status == true){
+    document.getElementById("spinner").classList.remove("hidden")
+    document.getElementById("all-plants").classList.add("hidden")
+  }
+  else{
+    document.getElementById("all-plants").classList.remove("hidden")
+    document.getElementById("spinner").classList.add("hidden")
+  }
+}
+
 const singleCataGorys = (singleValu) => {
   const allPlants = document.getElementById("all-plants");
   allPlants.innerHTML = "";
@@ -36,7 +48,7 @@ const singleCataGorys = (singleValu) => {
     crateSing.innerHTML = `<div class="bg-white shadow p-4 rounded-2xl flex flex-col justify-between h-full">
     <div>
       <img class="w-full md:w-[300px] h-[200px] mx-auto rounded-2xl" src="${value.image}" alt="">
-      <h1 onclick="mymodal.showModal()" class="font-semibold mt-2">${value.name}</h1>
+      <h1 onclick="loadDeltail(${value.id})" class="font-semibold mt-2">${value.name}</h1>
       <p class="mt-2">${value.description}</p>
       <div class="flex justify-between mt-2">
         <div class="bg-[#DCFCE7] text-[#15803D] px-2 rounded-xl">${value.category}</div>
@@ -52,9 +64,11 @@ const singleCataGorys = (singleValu) => {
 const cardConatiner = document.getElementById("all-plants")
 cardConatiner.addEventListener("click",(e) => {
   if(e.target.innerText === "Add to Cart"){
-    alert("Your Item to Cart.")
+    
     const cartcont = document.getElementById("Cart-cont")
-  const treename = e.target.parentNode.childNodes[1].childNodes[7].childNodes[1].innerText
+  let treename = e.target.parentNode.childNodes[1].childNodes[7].childNodes[1].innerText
+  const treena = e.target.parentNode.childNodes[1].childNodes[3].innerText
+  alert(`${treena} - has been added to the cart`)
   const treePrice = Number(e.target.parentNode.childNodes[1].childNodes[7].childNodes[3].innerText)
    const total = document.getElementById("totals")
    const crateCart = document.createElement("div")
@@ -71,48 +85,26 @@ cardConatiner.addEventListener("click",(e) => {
 })
 
 
-// const remove = document.getElementById("Cart-cont")
-// remove.addEventListener("click", (e) => {
-//   console.log(e.target);
-//   const closeopt = e.target.innerText
-//   closeopt.addEventListener("click", (n) => {
-//     console.log(n);
-//   })
-// })
 
+const loadDeltail = (id) => {
+  fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
+  .then(res => res.json())
+  .then(data => showDetail(data.plants))
+}
 
+const showDetail = (de) =>{
+  console.log(de);
+  const modalContainer = document.getElementById("details-container")
+  modalContainer.innerHTML = `<div class="space-y-3">
+                <h1 class="text-2xl font-semibold">${de.name}</h1>
+                <div class="h-[200px] "><img class="h-full w-full rounded-2xl mx-auto" src="${de.image}" alt=""></div>
+                <h2><span class="font-semibold">Category :</span> ${de.category}</h2>
+                <h2><span class="font-semibold">Price :</span> ${de.price} </h2>
+                <p><span class="font-semibold">Descriptions :</span> ${de.description}</p>
+              </div>`
+  document.getElementById("my_modal").showModal()
+}
 
-// document.getElementById("remove-item").addEventListener("click", () => {
-//   const removeItem = document.getElementById("remItem")
-//   removeItem.innerHTML= ""
-// })
-
-
-// for(let heart of HeartClass){
-//     heart.addEventListener("click",function(){
-//         const heartNumber = element("heartNumber").innerText;
-//         const heartNumberConvert = Number(heartNumber);
-//         const totalHeart = heartNumberConvert + 1;
-//         document.getElementById("heartNumber").innerText = totalHeart;
-//     })
-
-
-// const totalOpt = document.getElementById("all-plants")
-// cardConatiner.addEventListener("click",(e) => {
-//   const sumclass = document.getElementsByClassName("cartbtn")
-//   sumclass.forEach()
- 
-//   // const treename = e.target.parentNode.childNodes[1].childNodes[7].childNodes[1].innerText
-//   let treePrice = Number(e.target.parentNode.childNodes[1].childNodes[7].childNodes[3].innerText)
-// // let sum = 0;
-//  let tot = sum+treePrice
-//  console.log(tot);
-
-  //  const cratetotal = document.createElement("div")
-  //  cratetotal.innerHTML = "6564"
-  //  total.appendChild(cratetotal);
-   
-// })
 
 
 const allPlants = (allDatas) => {
@@ -122,7 +114,7 @@ const allPlants = (allDatas) => {
     crateAllPlants.innerHTML = `<div id="card-container" class="bg-white shadow p-4 rounded-2xl flex flex-col justify-between h-full">
     <div>
       <img class="w-full md:w-[300px] h-[250px] mx-auto rounded-2xl" src="${plant.image}" alt="">
-      <h1 class="font-semibold mt-2">${plant.name}</h1>
+      <h1 onclick="loadDeltail(${plant.id})" class="font-semibold mt-2">${plant.name}</h1>
       <p class="mt-2">${plant.description}</p>
       <div class="flex justify-between mt-4">
         <div class="bg-[#DCFCE7] text-[#15803D] px-2 rounded-xl">${plant.category}</div>
