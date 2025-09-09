@@ -19,5 +19,5 @@ Ans:Arrow functions are a new type of function introduced in ES6 that allows you
 Ans: Destructuring assignment is a shortcut system introduced in ES6 that allows you to easily separate a value from an array or object and assign it to a variable.
 
 
-5) Explain template literals in ES6. How are they different from string concatenation?র্
+5) Explain template literals in ES6. How are they different from string concatenation?
 Ans:Template literals are a new string syntax introduced in ES6, which is written with `(backtick)`. In this, Variable or expression can be placed directly inside ${ }. Using this, Multi-line string can be written easily. We know that Concatenation has to use + symbol and in contrast to this, Template literal uses backtick + ${ } which makes the code clean & readable.
