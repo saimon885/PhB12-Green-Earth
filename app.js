@@ -47,15 +47,15 @@ const singleCataGorys = (singleValu) => {
     const crateSing = document.createElement("div");
     crateSing.innerHTML = `<div class="bg-white shadow p-4 rounded-2xl flex flex-col justify-between h-full">
     <div>
-      <img class="w-full md:w-[300px] h-[200px] mx-auto rounded-2xl" src="${value.image}" alt="">
-      <h1 onclick="loadDeltail(${value.id})" class="font-semibold mt-2">${value.name}</h1>
+      <div class="h-[200px]"><img class="h-full object-cover w-full rounded-2xl mx-auto" src="${value.image}" alt=""></div>
+      <h1 onclick="loadDeltail(${value.id})" class="font-semibold mt-2 cursor-pointer text-2xl">${value.name}</h1>
       <p class="mt-2">${value.description}</p>
       <div class="flex justify-between mt-2">
         <div class="bg-[#DCFCE7] text-[#15803D] px-2 rounded-xl">${value.category}</div>
         <div class="font-semibold">${value.price}</div>
       </div>
     </div>
-    <button class="btn btn-soft text-white bg-[#15803D] w-full rounded-3xl mt-3 cartbtn">Add to Cart</button>
+    <button class="btn btn-soft text-white bg-[#15803D] hover:text-[#15803D] hover:bg-[#FACC15] w-full rounded-3xl mt-3 cartbtn">Add to Cart</button>
   </div>`;
     allPlants.appendChild(crateSing);
   });
@@ -82,8 +82,8 @@ cardConatiner.addEventListener("click",(e) => {
         `
    cartcont.appendChild(crateCart);
   }
+  
 })
-
 
 
 const loadDeltail = (id) => {
@@ -97,7 +97,7 @@ const showDetail = (de) =>{
   const modalContainer = document.getElementById("details-container")
   modalContainer.innerHTML = `<div class="space-y-3">
                 <h1 class="text-2xl font-semibold">${de.name}</h1>
-                <div class="h-[200px] "><img class="h-full w-full rounded-2xl mx-auto" src="${de.image}" alt=""></div>
+                <div class="h-[200px]"><img class="h-full object-cover w-full rounded-2xl mx-auto" src="${de.image}" alt=""></div>
                 <h2><span class="font-semibold">Category :</span> ${de.category}</h2>
                 <h2><span class="font-semibold">Price :</span> ${de.price} </h2>
                 <p><span class="font-semibold">Descriptions :</span> ${de.description}</p>
@@ -113,15 +113,15 @@ const allPlants = (allDatas) => {
     const crateAllPlants = document.createElement("div");
     crateAllPlants.innerHTML = `<div id="card-container" class="bg-white shadow p-4 rounded-2xl flex flex-col justify-between h-full">
     <div>
-      <img class="w-full md:w-[300px] h-[250px] mx-auto rounded-2xl" src="${plant.image}" alt="">
-      <h1 onclick="loadDeltail(${plant.id})" class="font-semibold mt-2">${plant.name}</h1>
+      <div class="h-[200px]"><img class="h-full object-cover w-full rounded-2xl mx-auto" src="${plant.image}" alt=""></div>
+      <h1 onclick="loadDeltail(${plant.id})" class="font-semibold mt-2 cursor-pointer text-2xl">${plant.name}</h1>
       <p class="mt-2">${plant.description}</p>
       <div class="flex justify-between mt-4">
         <div class="bg-[#DCFCE7] text-[#15803D] px-2 rounded-xl">${plant.category}</div>
         <div class="font-semibold">${plant.price}</div>
       </div>
     </div>
-    <button class="btn btn-soft text-white bg-[#15803D] w-full rounded-3xl mt-3 cartbtn totalBTn">Add to Cart</button>
+    <button class="btn btn-soft text-white bg-[#15803D] hover:text-[#15803D] hover:bg-[#FACC15] w-full rounded-3xl mt-3 cartbtn totalBTn">Add to Cart</button>
   </div>`;
     AllPlants.appendChild(crateAllPlants);
 

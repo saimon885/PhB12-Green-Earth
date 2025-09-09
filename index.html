@@ -7,6 +7,13 @@
     <link rel="shortcut icon" href="assets/about.png" type="image/x-icon" />
     <!-- css link -->
     <link rel="stylesheet" href="style.css" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <!-- daisy ui and Tailwind -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5"
@@ -23,7 +30,7 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="bg-[#F0FDF4]">
+  <body class="bg-[#F0FDF4] fonts">
     <header>
       <!-- navbar start -->
       <nav>
@@ -71,7 +78,7 @@
           </div>
           <div class="navbar-end">
             <a
-              class="btn bg-[#FACC15] rounded-4xl text-[#15803D] border-none mr-2"
+              class="btn bg-[#FACC15] hover:text-white hover:bg-[#71eb20] rounded-4xl text-[#15803D] border-none mr-2"
               >Plant a Tree</a
             >
           </div>
@@ -89,7 +96,7 @@
             for future generations.
           </p>
           <a
-            class="btn bg-[#FACC15] rounded-4xl text-[#15803D] border-none mr-2"
+            class="btn bg-[#FACC15] hover:bg-[#15803D] hover:text-[#FACC15] rounded-4xl text-[#15803D] border-none mr-2"
             >Get Involved</a
           >
         </div>
@@ -113,7 +120,10 @@
         <div id="catagorys" class="mt-2"></div>
       </div>
 
-      <div id="all-plants" class="w-full grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div
+        id="all-plants"
+        class="w-full grid grid-cols-1 md:grid-cols-3 gap-5 max-h-[570px] overflow-x-auto"
+      >
         <!-- Open the modal using ID.showModal() method -->
         <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
       </div>
